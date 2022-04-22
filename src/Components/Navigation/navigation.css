@@ -1,3 +1,7 @@
+header {
+    height: 10vh;
+}
+
 .nav-bar {
     display: flex;
     justify-content: space-between;
@@ -8,4 +12,11 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+/* Media QUeries */
+@media (max-width: 960px) {
+    nav {
+        display: none;
+    }
 }

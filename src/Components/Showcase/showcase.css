@@ -1,0 +1,44 @@
+.showcase {
+    display: flex;
+    justify-content: space-between;
+    height: 90vh;
+    align-items: center;
+}
+
+.showcase-content {
+    width: 400px;
+}
+
+.showcase-content-container {
+    width: 100%;
+}
+
+@media(max-width: 960px) {
+    .showcase {
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+
+    .showcase-image {
+        width: 350px;
+    }
+
+    .showcase-content {
+        text-align: center;
+        width: 500px;
+        margin: 20px auto;
+    }
+}
+
+@media(max-width: 500px) {
+
+    .showcase-image {
+        width: 250px;
+    }
+
+    .showcase-content {
+        text-align: center;
+        width: 350px;
+        margin: auto;
+    }
+}

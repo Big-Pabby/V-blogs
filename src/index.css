@@ -13,7 +13,7 @@ body {
 :root {
   --bg-secondary: #eae7dc;
   --bg-primary: #d8c3a5;
-  --color-primary: #8e8dba;
+  --color-primary: #000000;
   --color-secondary: #e98074;
   --color-secondary-deep: #e85a4f;
   --transition: 400ms ease;
@@ -51,6 +51,7 @@ button {
   display: inline-block;
   background: var(--color-secondary-deep);
   padding: 10px 20px;
+  margin-top: 10px;
   border-radius: 10px;
   color: #fff;
   transition: var(--transition);
@@ -76,14 +77,41 @@ li {
   list-style: none;
 }
 
+section {
+  margin-top: 20px;
+}
+
+section h1 {
+  color: var(--color-secondary-deep);
+  font-size: 40px;
+}
+
+p {
+  color: var(--color-primary);
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
-
+/* Media Queries */
 @media (max-width: 960px) {
   /* Mobile Hamburger */
+  .container {
+    width: var(--container-md);
+  }
+  
+}
 
+@media (max-width: 500px) {
+  .container {
+    width: var(--container-sm);
+  }
   
 }
