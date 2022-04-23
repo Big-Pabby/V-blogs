@@ -29,7 +29,7 @@ header {
     text-align: center;
 }
 
-nav {
+.nav-bar nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -37,7 +37,7 @@ nav {
 
 /* Media QUeries */
 @media (max-width: 960px) {
-    nav {
+    .nav-bar nav {
         display: none;
     }
 }

@@ -32,8 +32,9 @@ html {
 
 a {
   list-style: none;
-  color: #000000;
+  color: var(--color-secondary-deep);
   text-decoration: none;
+  transition: var(--transition);
 }
 
 button {
@@ -91,7 +92,7 @@ p {
 
 img {
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 code {

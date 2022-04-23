@@ -1,0 +1,10 @@
+.BlogNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.BlogNav a:hover {
+    text-decoration: underline;
+    color: var(--color-secondary);
+}
