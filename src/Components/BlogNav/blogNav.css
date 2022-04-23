@@ -8,3 +8,12 @@
     text-decoration: underline;
     color: var(--color-secondary);
 }
+
+@media (max-width:500px) {
+    .BlogNav {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+        justify-items: center;
+    }
+}

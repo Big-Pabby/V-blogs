@@ -3,6 +3,11 @@
     margin: 50px auto 0;
 }
 
+.blogs h1 {
+    text-align: center;
+    font-size: 30px;
+}
+
 .blog {
     display: grid;
     grid-template-columns: 1fr 1fr;

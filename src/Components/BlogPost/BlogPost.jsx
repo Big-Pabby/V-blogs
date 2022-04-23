@@ -10,6 +10,7 @@ import {AiOutlineArrowRight} from 'react-icons/ai';
 const BlogPost = () => {
   return (
     <section className="container blogs">
+        <h1>BLOGS</h1>
         <hr />
         <BlogNav />
         <div className="blogs-svg">
