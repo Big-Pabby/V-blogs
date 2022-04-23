@@ -2,6 +2,7 @@ import React from 'react'
 import './navigation.css'
 import {BsPen} from 'react-icons/bs'
 import {Link} from 'react-router-dom'
+import HamburgerMenu from '../HamburgerMenu/HamburgerMenu'
 
 const Navigation = () => {
   return (
@@ -17,6 +18,7 @@ const Navigation = () => {
                     <ul><Link to="/login"><li className='btn btn-outline'>Login/Register</li></Link></ul>
                     <ul><Link to="/profile"><li className='btn btn-outline'>Your Profile</li></Link></ul>
                 </nav>
+                <HamburgerMenu />
             </div>
         </div>
     </header>
