@@ -1,0 +1,23 @@
+.top {
+    background: var(--color-secondary-deep);
+    padding: 10px;
+    display: inline-block;
+    border-radius: 50px;
+    justify-content: center;
+    color: #fff;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 50;
+}
+
+
+a {
+    color: #fff;
+}
+
+.top:hover {
+    padding: 15px;
+}

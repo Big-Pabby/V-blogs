@@ -1,5 +1,7 @@
 import React from 'react'
 import './navigation.css'
+import {BsPen} from 'react-icons/bs'
+import {Link} from 'react-router-dom'
 
 const Navigation = () => {
   return (
@@ -7,13 +9,13 @@ const Navigation = () => {
         <div className="container">
             <div className="nav-bar">
                 <div className="logo">
-                    <h4>V-Blogs</h4>
+                    <h4>V-Blogs<BsPen className='icon' /></h4>
                 </div>
                 <nav>
-                    <ul><li><a href="#" className='btn btn-outline'>Home</a></li></ul>
-                    <ul><li><a href="#" className='btn btn-outline'>CreateBlog</a></li></ul>
-                    <ul><li><a href="#" className='btn btn-outline'>Login/Register</a></li></ul>
-                    <ul><li><a href="#" className='btn btn-outline'>Your Profile</a></li></ul>
+                    <ul><Link to="/"><li className='btn btn-outline'> Home</li></Link></ul>
+                    <ul><Link to="/create-blog"><li className='btn btn-outline'>CreateBlog</li></Link></ul>
+                    <ul><Link to="/login"><li className='btn btn-outline'>Login/Register</li></Link></ul>
+                    <ul><Link to="/profile"><li className='btn btn-outline'>Your Profile</li></Link></ul>
                 </nav>
             </div>
         </div>

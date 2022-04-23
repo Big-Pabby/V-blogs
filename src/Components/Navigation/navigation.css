@@ -1,11 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Square+Peg&display=swap');
+
 header {
-    height: 10vh;
+    position: fixed;
+    width: 100%;
+    z-index: 55;
+    background: var(--bg-secondary);
+}
+
+.logo {
+    font-family: 'Square Peg', cursive;
+    cursor: pointer;
+    
+}
+
+.logo h4 {
+    font-size: 25px;
+}
+
+.logo .icon {
+    font-size: 15px;
+    margin-left: 5px;
 }
 
 .nav-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    text-align: center;
 }
 
 nav {
