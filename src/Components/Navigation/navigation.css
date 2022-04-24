@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Square+Peg&display=swap');
+
 
 header {
     position: fixed;
@@ -7,19 +7,8 @@ header {
     background: var(--bg-secondary);
 }
 
-.logo {
-    font-family: 'Square Peg', cursive;
-    cursor: pointer;
-    
-}
-
-.logo h4 {
-    font-size: 25px;
-}
-
-.logo .icon {
-    font-size: 15px;
-    margin-left: 5px;
+.HamburgerMenu {
+    display: none;
 }
 
 .nav-bar {
@@ -39,5 +28,9 @@ header {
 @media (max-width: 960px) {
     .nav-bar nav {
         display: none;
+    }
+
+    .HamburgerMenu {
+        display: block;
     }
 }

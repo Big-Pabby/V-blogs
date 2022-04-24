@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Square+Peg&display=swap');
+
+
+.logo {
+    font-family: 'Square Peg', cursive;
+    cursor: pointer;
+    
+}
+
+.logo h4 {
+    font-size: 25px;
+}
+
+.logo .icon {
+    font-size: 15px;
+    margin-left: 5px;
+}

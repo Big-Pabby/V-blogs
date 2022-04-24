@@ -23,10 +23,10 @@ function HamburgerMenu() {
                         </Link>
                     </li>
                     <div className="nav-links">
-                        <li className='nav-text'><Link to='/'>Home</Link></li>
-                        <li className='nav-text'><Link to='/create-blog'>CreateBlog</Link></li>
-                        <li className='nav-text'><Link to='/login'>Login/Register</Link></li>
-                        <li className='nav-text'><Link to='/profile'>Profile</Link></li>
+                    <Link to='/' className='nav-text'><li >Home</li></Link>
+                        <Link to='/create-blog' className='nav-text'><li>CreateBlog</li></Link>
+                       <Link to='/login' className='nav-text'><li>Login/Register</li></Link>
+                        <Link to='/profile' className='nav-text'><li>Profile</li></Link>
                     </div>  
                 </ul>
             </div>
