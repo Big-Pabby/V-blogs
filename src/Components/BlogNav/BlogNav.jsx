@@ -10,6 +10,7 @@ const BlogNav = () => {
         <li><a href="#">News</a></li>
         <li><a href="#">Education</a></li>
         <li><a href="#">Sports</a></li>
+        <li><a href="#">Entertainment</a></li>
     </nav>
   )
 }

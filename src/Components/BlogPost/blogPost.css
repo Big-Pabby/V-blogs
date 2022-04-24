@@ -1,11 +1,21 @@
 .blogs-svg {
-    width: 550px;
+    width: 400px;
     margin: 50px auto 0;
 }
 
 .blogs h1 {
     text-align: center;
     font-size: 30px;
+}
+
+.category {
+    background: var(--color-primary);
+    color: #fff;
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .blog {

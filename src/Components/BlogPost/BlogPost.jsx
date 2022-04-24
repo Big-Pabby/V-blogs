@@ -22,6 +22,7 @@ const BlogPost = () => {
           </div>
           <div className="blog-content">
             <h2>FIFA World Cup</h2>
+            <div className="category">Sports</div>
             <h4>Victor Adekunle | April 23, 2022</h4>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est harum blanditiis numquam ab magni nisi!</p>
             <a href="#" className='btn'>View Post <AiOutlineArrowRight/></a>
@@ -34,6 +35,7 @@ const BlogPost = () => {
           </div>
           <div className="blog-content">
             <h2>Naruto vs Luffy vs Goku</h2>
+            <div className="category">Entertainment</div>
             <h4>Victor Adekunle | April 23, 2022</h4>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est harum blanditiis numquam ab magni nisi!</p>
             <a href="#" className='btn'>View Post <AiOutlineArrowRight/></a>
@@ -46,6 +48,7 @@ const BlogPost = () => {
           </div>
           <div className="blog-content">
             <h2>Clean Your Environment</h2>
+            <div className="category">News</div>
             <h4>Victor Adekunle | April 23, 2022</h4>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est harum blanditiis numquam ab magni nisi!</p>
             <a href="#" className='btn'>View Post <AiOutlineArrowRight/></a>
