@@ -1,0 +1,48 @@
+
+.createblog {
+    padding-top: 100px;
+}
+
+.createblog-input {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.createblog-title input {
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid var(--color-primary);
+    background: none;
+    color: var(--color-secondary-deep);
+    outline: none;
+    width: 300px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.createblog-image input {
+    background: var(--color-primary);
+    padding: 10px 20px;
+    border-radius: 50px;
+}
+
+.createblog-btn {
+    margin-top: 20px;
+}
+
+.createblog-btn .btn {
+    border-radius: 50px;
+}
+
+.ql-editor{
+    min-height: 300px;
+}
+
+@media(max-width: 500px) {
+    .createblog-input {
+        flex-direction: column;
+        justify-content: center;
+        justify-items: center;
+        gap: 10px;
+    }
+}

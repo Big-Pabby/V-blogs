@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import LoginImage from '../../assets/images/login.svg'
 
 const Login = () => {
+
   return (
     <div className='login container'>
         <div className="login-page">
