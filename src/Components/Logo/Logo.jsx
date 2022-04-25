@@ -4,9 +4,7 @@ import './logo.css'
 
 const Logo = () => {
   return (
-    <div className="logo">
-        <h4>V-Blogs<BsPen className='icon' /></h4>
-    </div>
+        <h4 className='logo'>V-Blogs<BsPen className='icon' /></h4>
   )
 }
 
