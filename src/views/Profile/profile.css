@@ -1,0 +1,25 @@
+.profile {
+    padding-top: 100px;
+}
+
+.profile-image {
+    width: 250px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.profile h1 {
+    text-align: center;
+    color: var(--color-secondary-deep);
+    margin-top: 50px;
+}
+
+.profile-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-btn .btn {
+    border-radius: 20px;
+}

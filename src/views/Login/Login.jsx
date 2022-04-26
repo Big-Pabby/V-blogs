@@ -2,6 +2,8 @@ import React from 'react'
 import './login.css'
 import { Link } from 'react-router-dom'
 import LoginImage from '../../assets/images/login.svg'
+import {BsFillShieldLockFill} from 'react-icons/bs'
+import {HiMail} from 'react-icons/hi'
 
 const Login = () => {
 
@@ -15,11 +17,17 @@ const Login = () => {
           <hr />
           <form className='login-form'>
             <div className='login-detail'>
-              <label>Email</label>
+              <label>
+                <HiMail/>
+                <p>Email</p>
+              </label>
               <input type="email" placeholder='Enter Your Email' />
             </div>
             <div className='login-detail'>
-              <label>Password</label>
+              <label>
+                <BsFillShieldLockFill/>
+                <p>Password</p>
+              </label>
               <input type="password" placeholder='Enter Your Password' />
             </div>
             <p>Don't Have An Account? <Link to="/register">Register</Link></p>
