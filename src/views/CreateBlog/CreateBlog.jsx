@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './createBlog.css'
 import ReactQuill from 'react-quill'
 import '../../../node_modules/react-quill/dist/quill.snow.css'
 
 const CreateBlog = () => {
+
+  const [blogText, setBlogText] = useState('')
+
   return (
     <div className='createblog container'>
       <div className="createblog-input">
@@ -11,7 +14,9 @@ const CreateBlog = () => {
           <input type="text" placeholder='Enter Blog Title' />
         </div>
         <div className="createblog-image">
-          <input type="file" name="Upload Cover Photo" id="" />
+          <label htmlFor="blog-photo">Upload Cover Photo</label>
+          <input type="file" id="blog-photo" accept='.png, .jpg, .jpeg' />
+          <span>File Name:</span>
         </div>
       </div>
       <ReactQuill placeholder='Write your blog here...' modules={CreateBlog.modules} formats={CreateBlog.formats} />

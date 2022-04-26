@@ -11,7 +11,7 @@ const Login = () => {
           <div className="login-image">
             <img src={LoginImage} alt="login svg" />
           </div>
-          <h2>Get Started</h2>
+          <h2>Login to V-Blog</h2>
           <hr />
           <form className='login-form'>
             <div className='login-detail'>

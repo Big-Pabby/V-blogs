@@ -10,7 +10,7 @@ const Register = () => {
           <div className="login-image">
             <img src={RegisterImage} alt="register svg" />
           </div>
-          <h2>Register For Your Blog Account</h2>
+          <h2>Create Your V-Blog Account</h2>
           <hr />
           <form className='login-form'>
             <div className='login-detail'>

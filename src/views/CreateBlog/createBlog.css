@@ -6,6 +6,7 @@
 .createblog-input {
     display: flex;
     margin-bottom: 30px;
+    align-items: center;
 }
 
 .createblog-title input {
@@ -20,10 +21,20 @@
     font-size: 16px;
 }
 
-.createblog-image input {
+.createblog-image label {
     background: var(--color-primary);
     padding: 10px 20px;
     border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.createblog-image input {
+    display: none;
+}
+
+.createblog-image span {
+    margin-left: 10px;
 }
 
 .createblog-btn {
@@ -42,7 +53,10 @@
     .createblog-input {
         flex-direction: column;
         justify-content: center;
-        justify-items: center;
+        align-items: center;
         gap: 10px;
+    }
+    .createblog-image {
+        margin-top: 10px;
     }
 }

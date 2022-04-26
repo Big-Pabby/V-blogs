@@ -1,4 +1,5 @@
 import './App.css';
+import React, { useState } from 'react';
 import Home from './views/Home/Home'
 import Navigation from './Components/Navigation/Navigation';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
@@ -9,6 +10,12 @@ import Register from './views/Register/Register';
 import Footer from './Components/Footer/Footer';
 
 function App() {
+  const [users, setusers] = useState([
+    {
+      blogText: '',
+      blogTitle: ''
+    }
+  ])
 
   return (
     <Router>
