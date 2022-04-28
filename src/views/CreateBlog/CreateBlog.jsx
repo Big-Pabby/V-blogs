@@ -52,11 +52,13 @@ const CreateBlog = () => {
           <span>File Name:{blogPost.blogImage}</span>
         </div>
       </div>
+      <div className="createblog-input-image">
+        <img src={blogPost.blogImageURL} alt="" />
+      </div>
       <ReactQuill value={blogPost.blogContent} onChange={saveBlogContent} placeholder='Write your blog here...' modules={CreateBlog.modules} formats={CreateBlog.formats} />
       <div className="createblog-btn">
         <button type='button' onClick={publishBlog} className="btn">PUBLISH BLOG</button>
       </div>
-      <img src={blogPost.blogImageURL} alt="" />
     </div>
   )
 }

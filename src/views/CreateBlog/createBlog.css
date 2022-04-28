@@ -38,6 +38,15 @@
     margin-left: 10px;
 }
 
+.createblog-input-image {
+    width: 300px;
+    margin: 0 auto 10px;
+}
+
+.createblog-input-image img {
+    border-radius: 20px;
+}
+
 .createblog-btn {
     margin-top: 20px;
 }
