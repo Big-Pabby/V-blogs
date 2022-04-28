@@ -5,23 +5,56 @@ import '../../../node_modules/react-quill/dist/quill.snow.css'
 
 const CreateBlog = () => {
 
-  const [blogText, setBlogText] = useState('')
+  const [blogPost, setBlogPost] = useState({
+    blogTitle: '',
+    blogContent: '',
+    blogImage: null,
+    blogImageURL: null,
+    blogCategory: '',
+    created: new Date()
+  })
+
+  const saveBlogTitle = (e) => {
+    setBlogPost({...blogPost, blogTitle: e.target.value})
+  }
+  const saveBlogContent = (value) => {
+    setBlogPost({...blogPost, blogContent: value})
+  }
+  const saveCategory = (e) => {
+    setBlogPost({...blogPost, blogCategory: e.target.value})
+  }
+
+  const saveImage = (e) => {
+    setBlogPost({...blogPost, blogImage: e.target.files[0].name})
+  }
+
+  const publishBlog = () => {
+    console.log(blogPost)
+  }
 
   return (
     <div className='createblog container'>
       <div className="createblog-input">
         <div className="createblog-title">
-          <input type="text" placeholder='Enter Blog Title' />
+          <input onChange={saveBlogTitle} type="text" placeholder='Enter Blog Title' />
         </div>
+        <select className='select-field' onChange={saveCategory} >
+          <option value="News">News</option>
+          <option value="Business">Business</option>
+          <option value="Technology">Technology</option>
+          <option value="Education">Education</option>
+          <option value="Health">Health</option>
+          <option value="Entertainment">Entertainment</option>
+        </select>
         <div className="createblog-image">
           <label htmlFor="blog-photo">Upload Cover Photo</label>
-          <input type="file" id="blog-photo" accept='.png, .jpg, .jpeg' />
-          <span>File Name:</span>
+          <input onChange={saveImage} type="file" id="blog-photo" accept='.png, .jpg, .jpeg' />
+          <span>File Name:{blogPost.blogImage}</span>
         </div>
       </div>
-      <ReactQuill placeholder='Write your blog here...' modules={CreateBlog.modules} formats={CreateBlog.formats} />
+      <ReactQuill value={blogPost.blogContent} onChange={saveBlogContent} placeholder='Write your blog here...' modules={CreateBlog.modules} formats={CreateBlog.formats} />
       <div className="createblog-btn">
-        <button className="btn">PUBLISH BLOG</button>
+        <button type='button' onClick={publishBlog} className="btn">PUBLISH BLOG</button>
       </div>
     </div>
   )
@@ -33,6 +66,7 @@ CreateBlog.modules = {
     ["bold", "italic", "underline", "strike", "blockquote"],
     [{list: "ordered"}, {list: "bullet"}],
     ["link"],
+    ["code-block"]
   ]
 }
 
@@ -46,7 +80,7 @@ CreateBlog.formats = [
   "underline",
   "strike",
   "blockquote",
-
+  "code-block"
 ]
 
 export default CreateBlog
