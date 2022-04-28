@@ -25,7 +25,7 @@ const CreateBlog = () => {
   }
 
   const saveImage = (e) => {
-    setBlogPost({...blogPost, blogImage: e.target.files[0].name})
+    setBlogPost({...blogPost, blogImage: e.target.files[0].name, blogImageURL: URL.createObjectURL(e.target.files[0])})
   }
 
   const publishBlog = () => {
@@ -43,7 +43,7 @@ const CreateBlog = () => {
           <option value="Business">Business</option>
           <option value="Technology">Technology</option>
           <option value="Education">Education</option>
-          <option value="Health">Health</option>
+          <option value="Sports">Sports</option>
           <option value="Entertainment">Entertainment</option>
         </select>
         <div className="createblog-image">
@@ -56,6 +56,7 @@ const CreateBlog = () => {
       <div className="createblog-btn">
         <button type='button' onClick={publishBlog} className="btn">PUBLISH BLOG</button>
       </div>
+      <img src={blogPost.blogImageURL} alt="" />
     </div>
   )
 }
