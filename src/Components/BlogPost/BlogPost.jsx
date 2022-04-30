@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import './blogPost.css'
 import BlogNav from '../BlogNav/BlogNav'
 import BlogPostImg from '../../assets/images/blogPost.svg'
@@ -8,6 +8,18 @@ import Forest from '../../assets/images/forest.jpg'
 import {AiOutlineArrowRight} from 'react-icons/ai';
 
 const BlogPost = () => {
+  useEffect(() => {
+    fetchBlogPosts();
+  }, []);
+
+  const [blogData, setBlogData] = useState([]);
+
+  const fetchBlogPosts = async () => {
+    const data = await fetch('http://localhost:5000/blogPost')
+    const posts = await data.json()
+    setBlogData(posts)
+  }
+
   return (
     <section className="container blogs">
         <h1>BLOGS</h1>
@@ -16,44 +28,27 @@ const BlogPost = () => {
         <div className="blogs-svg">
           <img src={BlogPostImg} alt="blogsvg" />
         </div>
-        <div className="blog">
-          <div className="blog-image">
-            <img src={Field} alt="pitch" />
-          </div>
-          <div className="blog-content">
-            <h2>FIFA World Cup</h2>
-            <div className="category">Sports</div>
-            <h4>Victor Adekunle | April 23, 2022</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est harum blanditiis numquam ab magni nisi!</p>
-            <a href="#" className='btn'>View Post <AiOutlineArrowRight/></a>
-          </div>
-        </div>
-
-        <div className="blog">
-          <div className="blog-image">
-            <img src={Anime} alt="anime" />
-          </div>
-          <div className="blog-content">
-            <h2>Naruto vs Luffy vs Goku</h2>
-            <div className="category">Entertainment</div>
-            <h4>Victor Adekunle | April 23, 2022</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est harum blanditiis numquam ab magni nisi!</p>
-            <a href="#" className='btn'>View Post <AiOutlineArrowRight/></a>
-          </div>
-        </div>
-
-        <div className="blog">
-          <div className="blog-image">
-            <img src={Forest} alt="forest" />
-          </div>
-          <div className="blog-content">
-            <h2>Clean Your Environment</h2>
-            <div className="category">News</div>
-            <h4>Victor Adekunle | April 23, 2022</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est harum blanditiis numquam ab magni nisi!</p>
-            <a href="#" className='btn'>View Post <AiOutlineArrowRight/></a>
-          </div>
-        </div>
+        {
+          blogData.map((blogPost, index) => {
+            return (
+              <div key={index} className="blog">
+                <div className="blog-image">
+                  <img src={blogPost.blogImageURL} />
+                </div>
+                <div className="blog-content">
+                  <h2>{blogPost.blogTitle}</h2>
+                  <div className="category">{blogPost.blogCategory}</div>
+                  <h4>Victor Adekunle | {blogPost.created}</h4>
+                  <span>
+                    <p dangerouslySetInnerHTML={{__html: blogPost.blogContent.substring(0, 50)}}></p>
+                    <p>...</p>
+                  </span>
+                  <a href="#" className='btn'>View Post <AiOutlineArrowRight/></a>
+                </div>
+              </div>
+            )
+          })
+        }
     </section>
   )
 }

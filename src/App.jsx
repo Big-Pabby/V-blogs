@@ -23,7 +23,7 @@ function App() {
         <Navigation className="Navigation"/>
         <Routes>
           <Route path='/' exact element={<Home />}/>
-          <Route path='/create-blog' element={<CreateBlog />}/>
+          <Route path='/create-blog' element={<CreateBlog/>}/>
           <Route path='/login' element={<Login />}/>
           <Route path='/profile' element={<Profile />}/>
           <Route path='/register' element={<Register />}/>

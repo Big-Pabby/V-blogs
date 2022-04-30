@@ -20,10 +20,22 @@
 
 .blog {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 50% 50%;
     gap: 20px;
     margin-top: 50px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.blog-content span p {
+    display: inline-block;
+}
+
+.blog-image {
+    height: 350px;
+}
+
+.blog-image img {
+    height: 350px;
 }
 
 .blog-content {
@@ -39,7 +51,10 @@
 }
 
 .blog-content a {
-    margin-top: 30px;
+    display: block;
+    margin: 30px auto 0;
+    width: 100px;
+    text-align: center;
 }
 
 @media (max-width: 960px) {
@@ -48,7 +63,7 @@
     }
 
     .blog {
-        grid-template-columns: 1fr;
+        grid-template-columns: 100%;
     }
 
     .blog-content {

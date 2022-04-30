@@ -2,17 +2,19 @@ import React, { useState } from 'react'
 import './createBlog.css'
 import ReactQuill from 'react-quill'
 import '../../../node_modules/react-quill/dist/quill.snow.css'
+import Loader from '../../Components/Loading/Loading'
 
 const CreateBlog = () => {
+  const [errorMessage, setErrorMessage] = useState('');
+  const [loader, setLoader] = useState(false)
 
   const [blogPost, setBlogPost] = useState({
     blogTitle: '',
     blogContent: '',
     blogImage: null,
     blogImageURL: null,
-    blogCategory: '',
-    created: new Date()
-  })
+    blogCategory: 'News',
+  });
 
   const saveBlogTitle = (e) => {
     setBlogPost({...blogPost, blogTitle: e.target.value})
@@ -28,37 +30,63 @@ const CreateBlog = () => {
     setBlogPost({...blogPost, blogImage: e.target.files[0].name, blogImageURL: URL.createObjectURL(e.target.files[0])})
   }
 
-  const publishBlog = () => {
-    console.log(blogPost)
+  const publishBlog = async () => {
+    setLoader(true)
+    if(blogPost.blogContent.length >= 10) {
+      const res = await fetch('http://localhost:5000/publishPost', {
+          method: 'post',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+              blogTitle: blogPost.blogTitle,
+              blogCategory: blogPost.blogCategory,
+              blogImageURL: blogPost.blogImageURL,
+              blogContent: blogPost.blogContent
+          })
+      })
+      setTimeout(() => {
+        setLoader(false);
+      }, 5000)
+      console.log(res.json())
+    } else {
+      setErrorMessage('Blog content cannot be less than 50 words')
+      setTimeout(() => {
+        setErrorMessage('')
+      }, 5000)
+    }
   }
 
+
   return (
-    <div className='createblog container'>
-      <div className="createblog-input">
-        <div className="createblog-title">
-          <input onChange={saveBlogTitle} type="text" placeholder='Enter Blog Title' />
+    <div className='createblog'>
+      <div className="container">
+        <div className="createblog-input">
+          <div className="createblog-title">
+            <input onChange={saveBlogTitle} type="text" placeholder='Enter Blog Title' />
+          </div>
+          <select className='select-field' onChange={saveCategory} >
+            <option value="News">News</option>
+            <option value="Business">Business</option>
+            <option value="Technology">Technology</option>
+            <option value="Education">Education</option>
+            <option value="Sports">Sports</option>
+            <option value="Entertainment">Entertainment</option>
+          </select>
+          <div className="createblog-image">
+            <label htmlFor="blog-photo">Upload Cover Photo</label>
+            <input onChange={saveImage} type="file" id="blog-photo" accept='.png, .jpg, .jpeg' required />
+            <span>File Name:{blogPost.blogImage}</span>
+          </div>
         </div>
-        <select className='select-field' onChange={saveCategory} >
-          <option value="News">News</option>
-          <option value="Business">Business</option>
-          <option value="Technology">Technology</option>
-          <option value="Education">Education</option>
-          <option value="Sports">Sports</option>
-          <option value="Entertainment">Entertainment</option>
-        </select>
-        <div className="createblog-image">
-          <label htmlFor="blog-photo">Upload Cover Photo</label>
-          <input onChange={saveImage} type="file" id="blog-photo" accept='.png, .jpg, .jpeg' />
-          <span>File Name:{blogPost.blogImage}</span>
+        <div className="createblog-input-image">
+          <img src={blogPost.blogImageURL} alt="" />
+        </div>
+        <ReactQuill value={blogPost.blogContent} onChange={saveBlogContent} placeholder='Write your blog here...' modules={CreateBlog.modules} formats={CreateBlog.formats} />
+        <p>{errorMessage}</p>
+        <div className="createblog-btn">
+          <button type='button' onClick={publishBlog} className="btn">PUBLISH BLOG</button>
         </div>
       </div>
-      <div className="createblog-input-image">
-        <img src={blogPost.blogImageURL} alt="" />
-      </div>
-      <ReactQuill value={blogPost.blogContent} onChange={saveBlogContent} placeholder='Write your blog here...' modules={CreateBlog.modules} formats={CreateBlog.formats} />
-      <div className="createblog-btn">
-        <button type='button' onClick={publishBlog} className="btn">PUBLISH BLOG</button>
-      </div>
+      <Loader loader={loader} />
     </div>
   )
 }
@@ -86,4 +114,4 @@ CreateBlog.formats = [
   "code-block"
 ]
 
-export default CreateBlog
+export default CreateBlog;
