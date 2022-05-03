@@ -31,8 +31,8 @@ const CreateBlog = () => {
   }
 
   const publishBlog = async () => {
-    setLoader(true)
-    if(blogPost.blogContent.length >= 10) {
+    if(blogPost.blogContent.length >= 300 && blogPost.blogTitle.length >= 10 && blogPost.blogImage !== null) {
+      setLoader(true)
       const res = await fetch('http://localhost:5000/publishPost', {
           method: 'post',
           headers: {'Content-Type': 'application/json'},
@@ -40,18 +40,17 @@ const CreateBlog = () => {
               blogTitle: blogPost.blogTitle,
               blogCategory: blogPost.blogCategory,
               blogImageURL: blogPost.blogImageURL,
-              blogContent: blogPost.blogContent
+              blogContent: blogPost.blogContent,
+              blogImageName: blogPost.blogImage
           })
       })
       setTimeout(() => {
         setLoader(false);
       }, 5000)
       console.log(res.json())
+      setErrorMessage('Blog Published Successfully')
     } else {
-      setErrorMessage('Blog content cannot be less than 50 words')
-      setTimeout(() => {
-        setErrorMessage('')
-      }, 5000)
+      setErrorMessage('Oops!!!, looks like there is an error. Make sure the blog content is greater than 300 words or the blog title is greater than 10 words or make sure you have uploaded an image. Then you are all set')
     }
   }
 
@@ -61,7 +60,7 @@ const CreateBlog = () => {
       <div className="container">
         <div className="createblog-input">
           <div className="createblog-title">
-            <input onChange={saveBlogTitle} type="text" placeholder='Enter Blog Title' />
+            <input onChange={saveBlogTitle} type="text" placeholder='Enter Blog Title' required />
           </div>
           <select className='select-field' onChange={saveCategory} >
             <option value="News">News</option>
@@ -81,7 +80,7 @@ const CreateBlog = () => {
           <img src={blogPost.blogImageURL} alt="" />
         </div>
         <ReactQuill value={blogPost.blogContent} onChange={saveBlogContent} placeholder='Write your blog here...' modules={CreateBlog.modules} formats={CreateBlog.formats} />
-        <p>{errorMessage}</p>
+        <p className='error-msg'>{errorMessage}</p>
         <div className="createblog-btn">
           <button type='button' onClick={publishBlog} className="btn">PUBLISH BLOG</button>
         </div>

@@ -2,9 +2,7 @@ import React, {useState, useEffect} from 'react'
 import './blogPost.css'
 import BlogNav from '../BlogNav/BlogNav'
 import BlogPostImg from '../../assets/images/blogPost.svg'
-import Field from '../../assets/images/field.jpg'
-import Anime from '../../assets/images/anime.jpg'
-import Forest from '../../assets/images/forest.jpg'
+import { Link } from 'react-router-dom'
 import {AiOutlineArrowRight} from 'react-icons/ai';
 
 const BlogPost = () => {
@@ -29,9 +27,9 @@ const BlogPost = () => {
           <img src={BlogPostImg} alt="blogsvg" />
         </div>
         {
-          blogData.map((blogPost, index) => {
+          blogData.map((blogPost) => {
             return (
-              <div key={index} className="blog">
+              <div key={blogPost.id} className="blog">
                 <div className="blog-image">
                   <img src={blogPost.blogImageURL} />
                 </div>
@@ -43,7 +41,7 @@ const BlogPost = () => {
                     <p dangerouslySetInnerHTML={{__html: blogPost.blogContent.substring(0, 50)}}></p>
                     <p>...</p>
                   </span>
-                  <a href="#" className='btn'>View Post <AiOutlineArrowRight/></a>
+                  <Link to={`/blog-detail/${blogPost.id}`} className='btn'>View Post <AiOutlineArrowRight/></Link>
                 </div>
               </div>
             )

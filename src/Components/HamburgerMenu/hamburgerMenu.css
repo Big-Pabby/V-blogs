@@ -19,7 +19,7 @@
     
     .hamburger-menu {
         background: var(--bg-primary);
-        width: 50%;
+        width: 30%;
         display: block;
         height: 100vh;
         position: fixed;
@@ -70,4 +70,10 @@
         color: #fff;
     }
     
+}
+
+@media (max-width: 500px) {
+    .hamburger-menu {
+        width: 40%;
+    }
 }

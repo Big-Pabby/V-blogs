@@ -1,0 +1,13 @@
+.blog-detail .container {
+    margin-top: 100px;
+    background: #fff;
+}
+
+.blog-detail .blog-image {
+    margin-bottom: 0;
+}
+
+.blog-detail .content {
+    text-align: center;
+    padding-bottom: 20px;
+}

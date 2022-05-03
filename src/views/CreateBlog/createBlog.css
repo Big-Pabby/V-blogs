@@ -10,6 +10,10 @@
     gap: 15px;
 }
 
+.error-msg {
+    color: red;
+}
+
 .createblog-title input {
     padding: 10px 0;
     border: none;

@@ -43,7 +43,7 @@ button {
 
 .container {
   width: var(--container-lg);
-  margin: auto;
+  margin: 0 auto;
 }
 
 .btn {
