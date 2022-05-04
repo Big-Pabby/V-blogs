@@ -1,21 +1,24 @@
 {
   "files": {
-    "main.css": "/V-blogs/static/css/main.2c1e9ce2.css",
-    "main.js": "/V-blogs/static/js/main.1fa1343d.js",
+    "main.css": "/V-blogs/static/css/main.f6dc2322.css",
+    "main.js": "/V-blogs/static/js/main.847853ba.js",
     "static/media/field.jpg": "/V-blogs/static/media/field.01e3a33689d72b6e3c7c.jpg",
-    "static/media/forest.jpg": "/V-blogs/static/media/forest.58723989e08f1be135c9.jpg",
-    "static/media/anime.jpg": "/V-blogs/static/media/anime.b5380f9879c8b7a9c20f.jpg",
+    "static/media/content.jpg": "/V-blogs/static/media/content.6ccdb89b344ef66cc46c.jpg",
+    "static/media/category.jpg": "/V-blogs/static/media/category.fae014b41ea3d1f127d0.jpg",
+    "static/media/topic.jpeg": "/V-blogs/static/media/topic.19628d330bd32fc07f85.jpeg",
+    "static/media/setImage.jpg": "/V-blogs/static/media/setImage.de067494d18db447472f.jpg",
+    "static/media/publish.jpg": "/V-blogs/static/media/publish.c594aa9a7ff94975a794.jpg",
     "static/media/blogPost.svg": "/V-blogs/static/media/blogPost.7a6519346376543690de69a34dafb22a.svg",
     "static/media/startBlogging.svg": "/V-blogs/static/media/startBlogging.cb33bf1ef05fb797e2616f86ec707159.svg",
     "static/media/welcome.svg": "/V-blogs/static/media/welcome.1800a2133a53cd5ddd1fbccaa5d0cdf9.svg",
     "static/media/register.svg": "/V-blogs/static/media/register.000f67719c0a2cc14ab1f83bca36405e.svg",
     "static/media/login.svg": "/V-blogs/static/media/login.a915755c6fbf2581393492c844d6c004.svg",
     "index.html": "/V-blogs/index.html",
-    "main.2c1e9ce2.css.map": "/V-blogs/static/css/main.2c1e9ce2.css.map",
-    "main.1fa1343d.js.map": "/V-blogs/static/js/main.1fa1343d.js.map"
+    "main.f6dc2322.css.map": "/V-blogs/static/css/main.f6dc2322.css.map",
+    "main.847853ba.js.map": "/V-blogs/static/js/main.847853ba.js.map"
   },
   "entrypoints": [
-    "static/css/main.2c1e9ce2.css",
-    "static/js/main.1fa1343d.js"
+    "static/css/main.f6dc2322.css",
+    "static/js/main.847853ba.js"
   ]
 }
