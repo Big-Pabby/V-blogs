@@ -29,19 +29,16 @@ const BlogPost = () => {
         {
           blogData.map((blogPost) => {
             return (
-              <div key={blogPost.id} className="blog">
+              <div key={blogPost.blogid} className="blog">
                 <div className="blog-image">
-                  <img src={blogPost.blogImageURL} />
+                  <img src={blogPost.blogimageurl} />
                 </div>
                 <div className="blog-content">
-                  <h2>{blogPost.blogTitle}</h2>
-                  <div className="category">{blogPost.blogCategory}</div>
+                  <h2>{blogPost.blogtitle}</h2>
+                  <div className="category">{blogPost.blogcategory}</div>
                   <h4>Victor Adekunle | {blogPost.created}</h4>
-                  <span>
-                    <p dangerouslySetInnerHTML={{__html: blogPost.blogContent.substring(0, 50)}}></p>
-                    <p>...</p>
-                  </span>
-                  <Link to={`/blog-detail/${blogPost.id}`} className='btn'>View Post <AiOutlineArrowRight/></Link>
+                  <p className='elipsis' dangerouslySetInnerHTML={{__html: blogPost.blogcontent}}></p>
+                  <Link to={`/blog-detail/${blogPost.blogid}`} className='btn'>View Post <AiOutlineArrowRight/></Link>
                 </div>
               </div>
             )

@@ -1,0 +1,57 @@
+.tips {
+    padding-top: 50px;
+}
+
+.tips-content {
+    margin-top: 50px;
+}
+
+.tips-heading-text {
+    text-align: center;
+}
+
+.tip {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 50px;
+    justify-content: space-between;
+}
+
+.tip.tip-reverse {
+    flex-direction: row-reverse;
+}
+
+.tip-content {
+    width: 50%;
+}
+
+.tip-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: var(--color-secondary-deep);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tip-image img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+}
+
+@media (max-width: 500px) {
+    .tip {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .tip.tip-reverse {
+        flex-direction: column;
+    }
+
+    .tip-content {
+        width: 100%;
+    }
+}

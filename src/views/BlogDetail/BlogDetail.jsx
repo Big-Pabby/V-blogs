@@ -9,24 +9,25 @@ const BlogDetail = () => {
   const [item, setItem] = useState({});
 
   useEffect(() => {
-    const fetchItem = async () => {
-      const fetchItem = await fetch(`http://localhost:5000/blogPost/${params.id}`);
-      const post = await fetchItem.json()
-      setItem(post);
-    }
     fetchItem()
-  });
+  }, []);
+
+  const fetchItem = async () => {
+    const fetchItem = await fetch(`http://localhost:5000/blogPost/${params.id}`);
+    const post = await fetchItem.json()
+    setItem(post);
+  }
 
   return (
     <div className="blog-detail">
         <div className="container">
             <div className="blog-Image">
-              <img src={Field} alt="blogimage" />
+              <img src={item.blogimageurl} alt="blogimage" />
             </div>
             <div className="content">
-              <h2>{item.blogTitle}</h2>
-              <div className='category'>{item.blogCategory}</div>
-              <p>{item.blogContent}</p>
+              <h2>{item.blogtitle}</h2>
+              <div className='category'>{item.blogcategory}</div>
+              <p dangerouslySetInnerHTML={{__html: item.blogcontent}}></p>
             </div>
         </div>
     </div>

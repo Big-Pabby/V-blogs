@@ -40,6 +40,17 @@
 
 .blog-content {
     padding: 10px 20px;
+    
+}
+
+.blog-content h2 {
+    word-break: break-all;
+}
+
+.elipsis{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 400px;
 }
 
 .blog-content h2 {

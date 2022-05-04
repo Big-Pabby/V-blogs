@@ -10,7 +10,7 @@ const Showcase = () => {
             <div className="showcase-content">
                 <h1>Explore new perspectives</h1>
                 <p>Read and share ideas from independent voices, world-class publications, and experts from around the globe. Everyone's welcome</p>
-                <a href="#" className='btn'>Get Started <AiOutlineArrowRight/></a>
+                <a href="#tips" className='btn'>Get Started <AiOutlineArrowRight/></a>
             </div>
         </div>
 
