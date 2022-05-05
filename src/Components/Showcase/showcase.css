@@ -1,12 +1,6 @@
 .showcase {
-    display: flex;
-    justify-content: space-between;
     height: 100vh;
-    align-items: center;
-}
-
-.showcase-content {
-    width: 400px;
+    padding-top: 100px;
 }
 
 .showcase-content .btn {
@@ -15,11 +9,14 @@
 }
 
 .showcase-content-container {
-    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
 }
 
 @media(max-width: 960px) {
-    .showcase {
+    .showcase-content-container {
         flex-direction: column-reverse;
         justify-content: center;
     }
@@ -30,8 +27,6 @@
 
     .showcase-content {
         text-align: center;
-        width: 500px;
-        margin: 20px auto;
     }
 }
 
@@ -43,7 +38,5 @@
 
     .showcase-content {
         text-align: center;
-        width: 350px;
-        margin: auto;
     }
 }

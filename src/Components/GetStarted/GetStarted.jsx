@@ -9,7 +9,7 @@ import publish from '../../assets/images/publish.jpg'
 const GetStarted = () => {
   return (
     <section id='tips' className="tips">
-        <div className="container">
+        <div>
             <div className="tips-heading-text">
                 <h1>How V-Blogs Works </h1>
                 <p>Let's walk you through the entire process</p>

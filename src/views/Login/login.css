@@ -1,11 +1,6 @@
 .login {
-    display: flex;
-    align-items: center;
     padding-top: 100px;
-}
-
-.login-page {
-    width: 100%;
+    text-align: center;
 }
 
 .login-image {
@@ -20,9 +15,9 @@
 
 .login-form {
     background: #fff;
+    max-width: 400px;
+    margin: auto;
     border-radius: 15px 15px 0 0;
-    width: 400px;
-    margin: 20px auto 0;
     padding: 20px 20px 30px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
@@ -54,8 +49,5 @@
 }
 
 @media (max-width: 500px) {
-    .login-form {
-        width: 90%;
-    }
 }
 

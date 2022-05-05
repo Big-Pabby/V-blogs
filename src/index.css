@@ -100,6 +100,7 @@ img {
   /* Mobile Hamburger */
   .container {
     width: var(--container-md);
+    margin: auto;
   }
   
 }
@@ -107,6 +108,7 @@ img {
 @media (max-width: 500px) {
   .container {
     width: var(--container-sm);
+    margin: auto;
   }
   
 }

@@ -54,4 +54,14 @@
     .tip-content {
         width: 100%;
     }
+
+    .tip-image {
+        width: 250px;
+        height: 250px;
+    }
+
+    .tip-image img {
+        width: 200px;
+        height: 200px;
+    }
 }

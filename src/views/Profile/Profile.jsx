@@ -36,54 +36,56 @@ const Profile = () => {
 
 
   return (
-    <div className='profile container'>
-      <div className="profile-image">
-        <img src={Welcome} alt="welcome" />
-        <h4>{updateUser.firstName} {updateUser.lastName}</h4>
-        <h4>{updateUser.email}</h4>
+    <div className='profile'>
+      <div className="container">
+        <div className="profile-image">
+          <img src={Welcome} alt="welcome" />
+          <h4>{updateUser.firstName} {updateUser.lastName}</h4>
+          <h4>{updateUser.email}</h4>
+        </div>
+        <h1>Account Setting</h1>
+        <hr />
+        <form className='login-form'>
+          <div className='login-detail'>
+            <label>
+              <FaUserAlt/>
+              <p>First Name</p>
+            </label>
+            <input type="text" onChange={changefirstName} value={updateUser.firstName} />
+          </div>
+          <div className='login-detail'>
+            <label>
+              <FaUserAlt/>
+              <p>Last Name</p>
+            </label>
+            <input type="text" onChange={changelastName} value={updateUser.lastName} />
+          </div>
+          <div className='login-detail'>
+            <label>
+              <HiMail/>
+              <p>Email</p>
+            </label>
+            <input type="email" onChange={changeEmail} value={updateUser.email} />
+          </div>
+          <div className='login-detail'>
+            <label>
+              <BsFillShieldLockFill/>
+              <p>Old Password</p>
+            </label>
+            <input type="password" onChange={oldPassword} placeholder='Enter Your Password' />
+          </div>
+          <div className='login-detail'>
+            <label>
+              <BsFillShieldLockFill/>
+              <p>New Password</p>
+            </label>
+            <input type="password" placeholder='Enter Your Password' />
+          </div>
+          <div className="profile-btn">
+            <button type='button' onClick={saveChanges} className='btn'>Change Setting</button>
+          </div>
+        </form>
       </div>
-      <h1>Account Setting</h1>
-      <hr />
-      <form className='login-form'>
-        <div className='login-detail'>
-          <label>
-            <FaUserAlt/>
-            <p>First Name</p>
-          </label>
-          <input type="text" onChange={changefirstName} value={updateUser.firstName} />
-        </div>
-        <div className='login-detail'>
-          <label>
-            <FaUserAlt/>
-            <p>Last Name</p>
-          </label>
-          <input type="text" onChange={changelastName} value={updateUser.lastName} />
-        </div>
-        <div className='login-detail'>
-          <label>
-            <HiMail/>
-            <p>Email</p>
-          </label>
-          <input type="email" onChange={changeEmail} value={updateUser.email} />
-        </div>
-        <div className='login-detail'>
-          <label>
-            <BsFillShieldLockFill/>
-            <p>Old Password</p>
-          </label>
-          <input type="password" onChange={oldPassword} placeholder='Enter Your Password' />
-        </div>
-        <div className='login-detail'>
-          <label>
-            <BsFillShieldLockFill/>
-            <p>New Password</p>
-          </label>
-          <input type="password" placeholder='Enter Your Password' />
-        </div>
-        <div className="profile-btn">
-          <button type='button' onClick={saveChanges} className='btn'>Change Setting</button>
-        </div>
-      </form>
     </div>
   )
 }

@@ -19,7 +19,7 @@ const BlogPost = () => {
   }
 
   return (
-    <section className="container blogs">
+    <section className="blogs">
         <h1>BLOGS</h1>
         <hr />
         <BlogNav />

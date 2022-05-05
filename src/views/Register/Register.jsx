@@ -8,8 +8,8 @@ import {FaUserAlt} from 'react-icons/fa'
 
 const Register = () => {
   return (
-    <div className='login container'>
-        <div className="login-page">
+    <div className='login'>
+        <div className="container">
           <div className="login-image">
             <img src={RegisterImage} alt="register svg" />
           </div>
