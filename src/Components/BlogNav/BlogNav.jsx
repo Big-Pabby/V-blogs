@@ -1,7 +1,8 @@
 import React from 'react'
 import './blogNav.css'
 
-const BlogNav = () => {
+const BlogNav = ({blogData}) => {
+
   return (
     <nav className='BlogNav'>
         <li><a href="#">Latest</a></li>

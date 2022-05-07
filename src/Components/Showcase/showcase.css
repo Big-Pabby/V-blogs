@@ -1,6 +1,5 @@
 .showcase {
     height: 100vh;
-    padding-top: 100px;
 }
 
 .showcase-content .btn {
@@ -9,6 +8,7 @@
 }
 
 .showcase-content-container {
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -19,6 +19,7 @@
     .showcase-content-container {
         flex-direction: column-reverse;
         justify-content: center;
+        align-items: center;
     }
 
     .showcase-image {

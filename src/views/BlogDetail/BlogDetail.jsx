@@ -26,8 +26,9 @@ const BlogDetail = () => {
             </div>
             <div className="content">
               <h2>{item.blogtitle}</h2>
+              <p>Victor Adekunle | {item.created}</p>
               <div className='category'>{item.blogcategory}</div>
-              <p dangerouslySetInnerHTML={{__html: item.blogcontent}}></p>
+              <p className='topic' dangerouslySetInnerHTML={{__html: item.blogcontent}}></p>
             </div>
         </div>
     </div>

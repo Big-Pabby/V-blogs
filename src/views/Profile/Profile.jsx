@@ -5,11 +5,11 @@ import {BsFillShieldLockFill} from 'react-icons/bs'
 import {HiMail} from 'react-icons/hi'
 import {FaUserAlt} from 'react-icons/fa'
 
-const Profile = () => {
+const Profile = ({user}) => {
   const [updateUser, setUpdateUser] = useState({
-    firstName: 'Victor',
-    lastName: 'Adekunle',
-    email: 'victoradekunle312@gmail.com',
+    firstName: user.firstname,
+    lastName: user.lastname,
+    email: user.email,
     password: '',
     confirmPassword: ''
   })
@@ -40,8 +40,8 @@ const Profile = () => {
       <div className="container">
         <div className="profile-image">
           <img src={Welcome} alt="welcome" />
-          <h4>{updateUser.firstName} {updateUser.lastName}</h4>
-          <h4>{updateUser.email}</h4>
+          <h4>{user.firstname} {user.lastname}</h4>
+          <h4>{user.email}</h4>
         </div>
         <h1>Account Setting</h1>
         <hr />

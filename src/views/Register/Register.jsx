@@ -1,12 +1,64 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import './register.css'
 import RegisterImage from '../../assets/images/register.svg'
 import {BsFillShieldLockFill} from 'react-icons/bs'
 import {HiMail} from 'react-icons/hi'
 import {FaUserAlt} from 'react-icons/fa'
+import Loading from '../../Components/Loading/Loading'
 
 const Register = () => {
+  const [registerUser, setRegisterUser] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+  })
+  const [errorMessage, setErrorMessage] = useState('')
+  const [Loader, setLoader] = useState(false)
+
+  const registerFirstname = (e) => {
+    setRegisterUser({...registerUser, firstName: e.target.value})
+  }
+
+  const registerLastname = (e) => {
+    setRegisterUser({...registerUser, lastName: e.target.value})
+  }
+
+  const registerEmail = (e) => {
+    setRegisterUser({...registerUser, email: e.target.value})
+  }
+
+  const registerPassword = (e) => {
+    setRegisterUser({...registerUser, password: e.target.value})
+  }
+
+  const onRegister = async () => {
+    if(registerUser.firstName !== '' && registerUser.lastName !== '' && registerUser.email !== '' && registerUser.password !== '') {
+      setLoader(true)
+      const res = await fetch('http://localhost:5000/register', {
+          method: 'post',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+              firstName: registerUser.firstName,
+              lastName: registerUser.lastName,
+              email: registerUser.email,
+              password: registerUser.password
+          })
+      })
+      setTimeout(() => {
+        setLoader(false);
+      }, 5000)
+      const user = await res.json()
+      console.log(user)
+      if(user === 'email already exist') {
+        setErrorMessage('Email already exist')
+      }
+    } else {
+      setErrorMessage('All fields are required to register')
+    }
+  }
+
   return (
     <div className='login'>
         <div className="container">
@@ -21,33 +73,35 @@ const Register = () => {
                 <FaUserAlt/>
                 <p>First Name</p>
               </label>
-              <input type="text" placeholder='Enter Your First Name' />
+              <input type="text" onChange={registerFirstname} placeholder='Enter Your First Name' />
             </div>
             <div className='login-detail'>
               <label>
                 <FaUserAlt/>
                 <p>Last Name</p>
               </label>
-              <input type="text" placeholder='Enter Your Last Name' />
+              <input type="text" onChange={registerLastname} placeholder='Enter Your Last Name' />
             </div>
             <div className='login-detail'>
               <label>
                 <HiMail/>
                 <p>Email</p>
               </label>
-              <input type="email" placeholder='Enter Your Email' />
+              <input type="email" onChange={registerEmail} placeholder='Enter Your Email' />
             </div>
             <div className='login-detail'>
               <label>
                 <BsFillShieldLockFill/>
                 <p>Password</p>
               </label>
-              <input type="password" placeholder='Enter Your Password' />
+              <input type="password" onChange={registerPassword} placeholder='Enter Your Password' />
             </div>
+            <p className='error-msg'>{errorMessage}</p>
             <p>Already Have An Account? <Link to="/login">Login</Link></p>
-            <button className='btn'>Register</button>
+            <button type='button' onClick={onRegister} className='btn'>Register</button>
           </form>
         </div>
+        <Loading loader={Loader} />
     </div>
   )
 }

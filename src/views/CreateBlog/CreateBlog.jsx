@@ -79,7 +79,7 @@ const CreateBlog = () => {
         <div className="createblog-input-image">
           <img src={blogPost.blogImageURL} alt="" />
         </div>
-        <ReactQuill value={blogPost.blogContent} onChange={saveBlogContent} placeholder='Write your blog here...' modules={CreateBlog.modules} formats={CreateBlog.formats} />
+        <ReactQuill onChange={saveBlogContent} placeholder='Write your blog here...' modules={CreateBlog.modules} formats={CreateBlog.formats} />
         <p className='error-msg'>{errorMessage}</p>
         <div className="createblog-btn">
           <button type='button' onClick={publishBlog} className="btn">PUBLISH BLOG</button>

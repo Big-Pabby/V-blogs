@@ -22,7 +22,7 @@ const BlogPost = () => {
     <section className="blogs">
         <h1>BLOGS</h1>
         <hr />
-        <BlogNav />
+        <BlogNav blogData={blogData} />
         <div className="blogs-svg">
           <img src={BlogPostImg} alt="blogsvg" />
         </div>
