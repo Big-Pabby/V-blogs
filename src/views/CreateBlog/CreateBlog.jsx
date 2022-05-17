@@ -17,10 +17,6 @@ const CreateBlog = ({user}) => {
     blogCategory: 'News',
   });
 
-  useEffect(() => {
-    console.log(user)
-  },[]);
-
   const history = useNavigate();
 
   const saveBlogTitle = (e) => {
