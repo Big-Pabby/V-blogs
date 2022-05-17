@@ -53,7 +53,7 @@ const CreateBlog = ({user}) => {
       }, 5000)
       console.log(res.json())
       setErrorMessage('Blog Published Successfully')
-      history('/')
+      history('/V-blogs')
     } else {
       setErrorMessage('Oops!!!, looks like there is an error. Make sure the blog content is greater than 300 words or the blog title is greater than 10 words or make sure you have uploaded an image. Then you are all set')
     }

@@ -47,7 +47,7 @@ const Login = ({logUser}) => {
       }else {
         console.log(user)
         logUser(user);
-        history("/")
+        history("/V-blogs")
       }
     } else {
       setErrorMessage('All fields are required to login to account')

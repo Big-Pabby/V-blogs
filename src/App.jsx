@@ -22,7 +22,7 @@ function App() {
       <div className="App">
         <Navigation className="Navigation"/>
         <Routes>
-          <Route path='/' exact element={<Home/>} />
+          <Route path='/V-blogs' exact element={<Home/>} />
           <Route path='/create-blog' element={<CreateBlog user={user} />} />
           <Route path='/login' element={<Login logUser={logUser}/>} />
           <Route path='/profile' element={<Profile user={user} />} />
