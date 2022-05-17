@@ -1,8 +1,7 @@
 {
   "files": {
-    "main.css": "/V-blogs/static/css/main.706e77f1.css",
-    "main.js": "/V-blogs/static/js/main.75cb4c70.js",
-    "static/media/field.jpg": "/V-blogs/static/media/field.01e3a33689d72b6e3c7c.jpg",
+    "main.css": "/V-blogs/static/css/main.268261d1.css",
+    "main.js": "/V-blogs/static/js/main.473b3853.js",
     "static/media/content.jpg": "/V-blogs/static/media/content.6ccdb89b344ef66cc46c.jpg",
     "static/media/category.jpg": "/V-blogs/static/media/category.fae014b41ea3d1f127d0.jpg",
     "static/media/topic.jpeg": "/V-blogs/static/media/topic.19628d330bd32fc07f85.jpeg",
@@ -14,11 +13,11 @@
     "static/media/register.svg": "/V-blogs/static/media/register.000f67719c0a2cc14ab1f83bca36405e.svg",
     "static/media/login.svg": "/V-blogs/static/media/login.a915755c6fbf2581393492c844d6c004.svg",
     "index.html": "/V-blogs/index.html",
-    "main.706e77f1.css.map": "/V-blogs/static/css/main.706e77f1.css.map",
-    "main.75cb4c70.js.map": "/V-blogs/static/js/main.75cb4c70.js.map"
+    "main.268261d1.css.map": "/V-blogs/static/css/main.268261d1.css.map",
+    "main.473b3853.js.map": "/V-blogs/static/js/main.473b3853.js.map"
   },
   "entrypoints": [
-    "static/css/main.706e77f1.css",
-    "static/js/main.75cb4c70.js"
+    "static/css/main.268261d1.css",
+    "static/js/main.473b3853.js"
   ]
 }
