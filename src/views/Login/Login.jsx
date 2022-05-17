@@ -6,6 +6,8 @@ import LoginImage from '../../assets/images/login.svg'
 import {BsFillShieldLockFill} from 'react-icons/bs'
 import {HiMail} from 'react-icons/hi';
 import Loading from '../../Components/Loading/Loading'
+import SuccessModal from '../../Components/ModalMessage/SuccessModal';
+import ErrorModal from '../../Components/ModalMessage/ErrorModal';
 
 const Login = ({logUser}) => {
   const [loginDetails, setLoginDetails] = useState({
@@ -13,7 +15,10 @@ const Login = ({logUser}) => {
     password: ''
   })
   const [errorMessage, setErrorMessage] = useState('');
-  const [loader, setLoader] = useState(false)
+  const [successMessage, setSuccessMessage] = useState('');
+  const [loader, setLoader] = useState(false);
+  const [modal, setModal] = useState(false);
+  const [errModal, setErrModal] = useState(false);
 
   const history = useNavigate()
   const inputEmail = (e) => {
@@ -34,23 +39,47 @@ const Login = ({logUser}) => {
               password: loginDetails.password
           })
       })
-      setTimeout(() => {
-        setLoader(false);
-      }, 5000)
       const user = await res.json();
       if(user === 'Email is not registered') {
-        setErrorMessage('Email is not registered')
+        setErrModal(true);
+        setErrorMessage('Email is not registered');
+        setTimeout(() => {
+          setErrModal(false);
+          setErrorMessage('')
+        }, 5000)
       } else if (user === 'Invalid Password') {
-        setErrorMessage('Invalid Password')
+        setErrModal(true);
+        setErrorMessage('Invalid Password');
+        setTimeout(() => {
+          setErrModal(false);
+          setErrorMessage('')
+        }, 5000)
       } else if(user === 'unable to login'){
-        setErrorMessage('unable to login')
-      }else {
-        console.log(user)
+        setErrModal(true);
+        setErrorMessage('Unable To Login');
+        setTimeout(() => {
+          setErrModal(false);
+          setErrorMessage('')
+        }, 5000)
+      } else {
         logUser(user);
-        history("/V-blogs")
+        setModal(true);
+        setSuccessMessage('Login Successful');
+        setTimeout(() => {
+          setModal(false);
+          setSuccessMessage('')
+          history("/V-blogs")
+        }, 5000)
       }
+
+      setLoader(false);
     } else {
-      setErrorMessage('All fields are required to login to account')
+      setErrModal(true);
+      setErrorMessage('All fields are required to login!!!');
+      setTimeout(() => {
+        setErrModal(false);
+        setErrorMessage('')
+      }, 5000)
     }
   }
 
@@ -77,12 +106,13 @@ const Login = ({logUser}) => {
           </label>
           <input type="password" onChange={inputPassword} placeholder='Enter Your Password' />
         </div>
-        <p className='error-msg'>{errorMessage}</p>
         <p>Don't Have An Account? <Link to="/register">Register</Link></p>
         <button type='button' onClick={onLogin} className='btn'>LOGIN</button>
       </form>
     </div>
     <Loading loader={loader} />
+    <SuccessModal modal={modal} message={successMessage} />
+    <ErrorModal errModal={errModal} message={errorMessage} />
   </div>
   )
 }

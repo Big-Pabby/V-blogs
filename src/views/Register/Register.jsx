@@ -7,6 +7,8 @@ import {BsFillShieldLockFill} from 'react-icons/bs'
 import {HiMail} from 'react-icons/hi'
 import {FaUserAlt} from 'react-icons/fa'
 import Loading from '../../Components/Loading/Loading'
+import SuccessModal from '../../Components/ModalMessage/SuccessModal';
+import ErrorModal from '../../Components/ModalMessage/ErrorModal';
 
 const Register = () => {
   const [registerUser, setRegisterUser] = useState({
@@ -16,7 +18,10 @@ const Register = () => {
     password: '',
   })
   const [errorMessage, setErrorMessage] = useState('')
-  const [Loader, setLoader] = useState(false)
+  const [successMessage, setSuccessMessage] = useState('')
+  const [Loader, setLoader] = useState(false);
+  const [modal, setModal] = useState(false);
+  const [errModal, setErrModal] = useState(false);
 
   const history = useNavigate();
 
@@ -49,18 +54,31 @@ const Register = () => {
               password: registerUser.password
           })
       })
-      setTimeout(() => {
-        setLoader(false);
-      }, 5000)
       const user = await res.json()
-      console.log(user)
       if(user === 'email already exist') {
-        setErrorMessage('Email already exist')
+        setErrModal(true);
+        setErrorMessage('Email Already Exists');
+        setTimeout(() => {
+          setErrModal(false);
+          setErrorMessage('')
+        }, 5000)
       } else {
-        history('/login')
+        setModal(true);
+        setSuccessMessage('Registration Was Successful');
+        setTimeout(() => {
+          setModal(false);
+          setSuccessMessage('')
+          history("/login")
+        }, 5000)
       }
+      setLoader(false)
     } else {
-      setErrorMessage('All fields are required to register')
+      setErrModal(true);
+        setErrorMessage('All fields are required to register!!!');
+        setTimeout(() => {
+          setErrModal(false);
+          setErrorMessage('')
+        }, 5000)
     }
   }
 
@@ -101,12 +119,13 @@ const Register = () => {
               </label>
               <input type="password" onChange={registerPassword} placeholder='Enter Your Password' />
             </div>
-            <p className='error-msg'>{errorMessage}</p>
             <p>Already Have An Account? <Link to="/login">Login</Link></p>
             <button type='button' onClick={onRegister} className='btn'>Register</button>
           </form>
         </div>
         <Loading loader={Loader} />
+        <SuccessModal modal={modal} message={successMessage} />
+        <ErrorModal errModal={errModal} message={errorMessage} />
     </div>
   )
 }
