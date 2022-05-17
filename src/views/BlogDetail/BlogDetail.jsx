@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import './blogDetail.css'
-import  Field from '../../assets/images/field.jpg'
 
 const BlogDetail = () => {
   const params = useParams();
@@ -9,14 +8,10 @@ const BlogDetail = () => {
   const [item, setItem] = useState({});
 
   useEffect(() => {
-    fetchItem()
-  }, []);
-
-  const fetchItem = async () => {
-    const fetchItem = await fetch(`http://localhost:5000/blogPost/${params.id}`);
-    const post = await fetchItem.json()
-    setItem(post);
-  }
+    fetch(`https://secure-taiga-11377.herokuapp.com/blogPost/${params.id}`)
+      .then(Response => Response.json())
+      .then(post => {setItem(post)})
+  }, [params.id]);
 
   return (
     <div className="blog-detail">
@@ -26,7 +21,7 @@ const BlogDetail = () => {
             </div>
             <div className="content">
               <h2>{item.blogtitle}</h2>
-              <p>Victor Adekunle | {item.created}</p>
+              <p>{item.blogby} | {item.created}</p>
               <div className='category'>{item.blogcategory}</div>
               <p className='topic' dangerouslySetInnerHTML={{__html: item.blogcontent}}></p>
             </div>

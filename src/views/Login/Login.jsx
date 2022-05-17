@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { useNavigate } from 'react-router-dom';
 import './login.css'
 import { Link } from 'react-router-dom'
 import LoginImage from '../../assets/images/login.svg'
@@ -14,6 +15,7 @@ const Login = ({logUser}) => {
   const [errorMessage, setErrorMessage] = useState('');
   const [loader, setLoader] = useState(false)
 
+  const history = useNavigate()
   const inputEmail = (e) => {
     setLoginDetails({...loginDetails, email: e.target.value})
   }
@@ -24,7 +26,7 @@ const Login = ({logUser}) => {
   const onLogin = async () => {
     if(loginDetails.email !== '' && loginDetails.password !== '') {
       setLoader(true)
-      const res = await fetch('http://localhost:5000/login', {
+      const res = await fetch('https://secure-taiga-11377.herokuapp.com/login', {
           method: 'post',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
@@ -40,9 +42,12 @@ const Login = ({logUser}) => {
         setErrorMessage('Email is not registered')
       } else if (user === 'Invalid Password') {
         setErrorMessage('Invalid Password')
-      } else {
+      } else if(user === 'unable to login'){
+        setErrorMessage('unable to login')
+      }else {
         console.log(user)
-        logUser(user)
+        logUser(user);
+        history("/")
       }
     } else {
       setErrorMessage('All fields are required to login to account')

@@ -7,7 +7,7 @@ import GetStarted from '../../Components/GetStarted/GetStarted';
 
 const Home = () => {
   return (
-    <div className="Home container">
+    <div id='home' className="Home container">
       <Showcase />
       <ArrowTop />
       <BlogPost />

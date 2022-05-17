@@ -1,20 +1,27 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './createBlog.css'
 import ReactQuill from 'react-quill'
 import '../../../node_modules/react-quill/dist/quill.snow.css'
 import Loader from '../../Components/Loading/Loading'
+import { useNavigate } from 'react-router-dom';
 
-const CreateBlog = () => {
+const CreateBlog = ({user}) => {
   const [errorMessage, setErrorMessage] = useState('');
   const [loader, setLoader] = useState(false)
-
   const [blogPost, setBlogPost] = useState({
     blogTitle: '',
+    blogBy: `${user.firstname} ${user.lastname}`,
     blogContent: '',
     blogImage: null,
     blogImageURL: null,
     blogCategory: 'News',
   });
+
+  useEffect(() => {
+    console.log(user)
+  },[]);
+
+  const history = useNavigate();
 
   const saveBlogTitle = (e) => {
     setBlogPost({...blogPost, blogTitle: e.target.value})
@@ -33,7 +40,7 @@ const CreateBlog = () => {
   const publishBlog = async () => {
     if(blogPost.blogContent.length >= 300 && blogPost.blogTitle.length >= 10 && blogPost.blogImage !== null) {
       setLoader(true)
-      const res = await fetch('http://localhost:5000/publishPost', {
+      const res = await fetch('https://secure-taiga-11377.herokuapp.com/publishPost', {
           method: 'post',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
@@ -41,7 +48,8 @@ const CreateBlog = () => {
               blogCategory: blogPost.blogCategory,
               blogImageURL: blogPost.blogImageURL,
               blogContent: blogPost.blogContent,
-              blogImageName: blogPost.blogImage
+              blogImageName: blogPost.blogImage,
+              blogBy: blogPost.blogBy
           })
       })
       setTimeout(() => {
@@ -49,6 +57,7 @@ const CreateBlog = () => {
       }, 5000)
       console.log(res.json())
       setErrorMessage('Blog Published Successfully')
+      history('/')
     } else {
       setErrorMessage('Oops!!!, looks like there is an error. Make sure the blog content is greater than 300 words or the blog title is greater than 10 words or make sure you have uploaded an image. Then you are all set')
     }

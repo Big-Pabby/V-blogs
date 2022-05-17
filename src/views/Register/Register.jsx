@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import './register.css'
 import RegisterImage from '../../assets/images/register.svg'
 import {BsFillShieldLockFill} from 'react-icons/bs'
@@ -16,6 +17,8 @@ const Register = () => {
   })
   const [errorMessage, setErrorMessage] = useState('')
   const [Loader, setLoader] = useState(false)
+
+  const history = useNavigate();
 
   const registerFirstname = (e) => {
     setRegisterUser({...registerUser, firstName: e.target.value})
@@ -36,7 +39,7 @@ const Register = () => {
   const onRegister = async () => {
     if(registerUser.firstName !== '' && registerUser.lastName !== '' && registerUser.email !== '' && registerUser.password !== '') {
       setLoader(true)
-      const res = await fetch('http://localhost:5000/register', {
+      const res = await fetch('https://secure-taiga-11377.herokuapp.com/register', {
           method: 'post',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
@@ -53,6 +56,8 @@ const Register = () => {
       console.log(user)
       if(user === 'email already exist') {
         setErrorMessage('Email already exist')
+      } else {
+        history('/login')
       }
     } else {
       setErrorMessage('All fields are required to register')

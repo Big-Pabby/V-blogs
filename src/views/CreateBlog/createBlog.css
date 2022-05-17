@@ -73,7 +73,7 @@
     overflow: scroll;
 }
 
-@media(max-width: 500px) {
+@media(max-width: 960px) {
     .createblog-input {
         flex-direction: column;
         justify-content: center;
@@ -81,5 +81,10 @@
     }
     .createblog-image {
         margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
     }
 }
