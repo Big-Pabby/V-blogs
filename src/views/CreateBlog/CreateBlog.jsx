@@ -4,10 +4,15 @@ import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css';
 import Loader from '../../Components/Loading/Loading'
 import { useNavigate } from 'react-router-dom';
+import SuccessModal from '../../Components/ModalMessage/SuccessModal';
+import ErrorModal from '../../Components/ModalMessage/ErrorModal';
 
 const CreateBlog = ({user}) => {
   const [errorMessage, setErrorMessage] = useState('');
-  const [loader, setLoader] = useState(false)
+  const [successMessage, setSuccessMessage] = useState('');
+  const [loader, setLoader] = useState(false);
+  const [modal, setModal] = useState(false);
+  const [errModal, setErrModal] = useState(false);
   const [blogPost, setBlogPost] = useState({
     blogTitle: '',
     blogBy: `${user.firstname} ${user.lastname}`,
@@ -36,7 +41,9 @@ const CreateBlog = ({user}) => {
   const publishBlog = async () => {
     if(blogPost.blogContent.length >= 300 && blogPost.blogTitle.length >= 10 && blogPost.blogImage !== null) {
       setLoader(true)
-      const res = await fetch('https://secure-taiga-11377.herokuapp.com/publishPost', {
+      try {
+        setLoader(true)
+        const res = await fetch('https://secure-taiga-11377.herokuapp.com/publishPost', {
           method: 'post',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
@@ -47,13 +54,33 @@ const CreateBlog = ({user}) => {
               blogImageName: blogPost.blogImage,
               blogBy: blogPost.blogBy
           })
-      })
-      setTimeout(() => {
+        })
+        console.log(res.json())
+        const response = res.json()
         setLoader(false);
-      }, 5000)
-      console.log(res.json())
-      setErrorMessage('Blog Published Successfully')
-      history('/V-blogs')
+        if(response !== 'unable to publish post') {
+          setSuccessMessage('Blog Published Sucessfully');
+          setTimeout(() => {
+            setModal(false);
+            setSuccessMessage('');
+            history('/V-blogs');
+          }, 5000)
+        } else {
+          setErrModal(true);
+          setErrorMessage('Unable to publish blog');
+          setTimeout(() => {
+            setErrModal(false);
+            setErrorMessage('')
+          }, 5000)
+        }
+      } catch {
+        setErrModal(true);
+        setErrorMessage('No internet connection');
+        setTimeout(() => {
+          setErrModal(false);
+          setErrorMessage('')
+        }, 5000)
+      }
     } else {
       setErrorMessage('Oops!!!, looks like there is an error. Make sure the blog content is greater than 300 words or the blog title is greater than 10 words or make sure you have uploaded an image. Then you are all set')
     }
@@ -77,7 +104,7 @@ const CreateBlog = ({user}) => {
           </select>
           <div className="createblog-image">
             <label htmlFor="blog-photo">Upload Cover Photo</label>
-            <input onChange={saveImage} type="file" id="blog-photo" accept='.png, .jpg, .jpeg' required />
+            <input onChange={saveImage} type="file" id="blog-photo" accept='.png, .jpg, .jpeg' />
             <span>File Name:{blogPost.blogImage}</span>
           </div>
         </div>
@@ -91,6 +118,8 @@ const CreateBlog = ({user}) => {
         </div>
       </div>
       <Loader loader={loader} />
+      <SuccessModal modal={modal} message={successMessage} />
+      <ErrorModal errModal={errModal} message={errorMessage} />
     </div>
   )
 }

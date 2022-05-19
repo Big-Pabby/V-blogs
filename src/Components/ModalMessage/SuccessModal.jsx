@@ -8,7 +8,7 @@ const SuccessModal = ({modal, message}) => {
             <div className="modal-container">
                 <div className="modal">
                   <BsCheckCircle className="modal-icon" />
-                  <h3>{message}</h3>
+                  <h4>{message}</h4>
                 </div>
             </div>
         )
