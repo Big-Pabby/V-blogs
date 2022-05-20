@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/V-blogs/static/css/main.29fc0112.css",
-    "main.js": "/V-blogs/static/js/main.7446e0d7.js",
+    "main.js": "/V-blogs/static/js/main.eb5ef733.js",
     "static/media/field.jpg": "/V-blogs/static/media/field.01e3a33689d72b6e3c7c.jpg",
     "static/media/forest.jpg": "/V-blogs/static/media/forest.58723989e08f1be135c9.jpg",
     "static/media/avengers_infinity_war_thanos_fight-1920x1080.jpg": "/V-blogs/static/media/avengers_infinity_war_thanos_fight-1920x1080.e24b5fd7723a9df0c757.jpg",
@@ -24,10 +24,10 @@
     "static/media/login.svg": "/V-blogs/static/media/login.a915755c6fbf2581393492c844d6c004.svg",
     "index.html": "/V-blogs/index.html",
     "main.29fc0112.css.map": "/V-blogs/static/css/main.29fc0112.css.map",
-    "main.7446e0d7.js.map": "/V-blogs/static/js/main.7446e0d7.js.map"
+    "main.eb5ef733.js.map": "/V-blogs/static/js/main.eb5ef733.js.map"
   },
   "entrypoints": [
     "static/css/main.29fc0112.css",
-    "static/js/main.7446e0d7.js"
+    "static/js/main.eb5ef733.js"
   ]
 }
