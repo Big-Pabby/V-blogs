@@ -1,7 +1,12 @@
 {
   "files": {
     "main.css": "/V-blogs/static/css/main.29fc0112.css",
-    "main.js": "/V-blogs/static/js/main.ab801b65.js",
+    "main.js": "/V-blogs/static/js/main.7446e0d7.js",
+    "static/media/field.jpg": "/V-blogs/static/media/field.01e3a33689d72b6e3c7c.jpg",
+    "static/media/forest.jpg": "/V-blogs/static/media/forest.58723989e08f1be135c9.jpg",
+    "static/media/avengers_infinity_war_thanos_fight-1920x1080.jpg": "/V-blogs/static/media/avengers_infinity_war_thanos_fight-1920x1080.e24b5fd7723a9df0c757.jpg",
+    "static/media/altos_odyssey_mobile_game_4k-1920x1080.jpg": "/V-blogs/static/media/altos_odyssey_mobile_game_4k-1920x1080.6609db8225569ff88cd0.jpg",
+    "static/media/starting.jpg": "/V-blogs/static/media/starting.7b6da2d9c9169ac8cff4.jpg",
     "static/media/content.jpg": "/V-blogs/static/media/content.6ccdb89b344ef66cc46c.jpg",
     "static/media/category.jpg": "/V-blogs/static/media/category.fae014b41ea3d1f127d0.jpg",
     "static/media/topic.jpeg": "/V-blogs/static/media/topic.19628d330bd32fc07f85.jpeg",
@@ -11,13 +16,18 @@
     "static/media/startBlogging.svg": "/V-blogs/static/media/startBlogging.cb33bf1ef05fb797e2616f86ec707159.svg",
     "static/media/welcome.svg": "/V-blogs/static/media/welcome.1800a2133a53cd5ddd1fbccaa5d0cdf9.svg",
     "static/media/register.svg": "/V-blogs/static/media/register.000f67719c0a2cc14ab1f83bca36405e.svg",
+    "static/media/undraw_add_post_re_174w.svg": "/V-blogs/static/media/undraw_add_post_re_174w.b30237a0f7cfabe02eee.svg",
+    "static/media/undraw_pay_online_re_aqe6.svg": "/V-blogs/static/media/undraw_pay_online_re_aqe6.0d1b2f07086c5e4f4899.svg",
+    "static/media/undraw_add_notes_re_ln36.svg": "/V-blogs/static/media/undraw_add_notes_re_ln36.9e55d9f394e6b6c25765.svg",
+    "static/media/undraw_blog_post_re_fy5x.svg": "/V-blogs/static/media/undraw_blog_post_re_fy5x.f378574716262160f7ef.svg",
+    "static/media/undraw_posts_re_ormv.svg": "/V-blogs/static/media/undraw_posts_re_ormv.91d298a84f8003e262e2.svg",
     "static/media/login.svg": "/V-blogs/static/media/login.a915755c6fbf2581393492c844d6c004.svg",
     "index.html": "/V-blogs/index.html",
     "main.29fc0112.css.map": "/V-blogs/static/css/main.29fc0112.css.map",
-    "main.ab801b65.js.map": "/V-blogs/static/js/main.ab801b65.js.map"
+    "main.7446e0d7.js.map": "/V-blogs/static/js/main.7446e0d7.js.map"
   },
   "entrypoints": [
     "static/css/main.29fc0112.css",
-    "static/js/main.ab801b65.js"
+    "static/js/main.7446e0d7.js"
   ]
 }
