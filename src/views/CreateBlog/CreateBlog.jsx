@@ -16,7 +16,7 @@ const CreateBlog = ({user}) => {
   const [errModal, setErrModal] = useState(false);
   const [blogPost, setBlogPost] = useState({
     blogTitle: '',
-    blogBy: 'Victor Adekunle',
+    blogBy: `${user.firstname} ${user.lastname}`,
     blogContent: '',
     blogImage: '',
     blogImageURL: '',
