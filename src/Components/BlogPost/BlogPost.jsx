@@ -70,7 +70,7 @@ const BlogPost = () => {
             return (
               <div key={blogPost.blogid} className="blog">
                 <div className="blog-image">
-                  <img src={blogPost.blogimageurl} alt="blogimage" />
+                <img src={require(`../../assets${blogPost.blogimageurl}`)} alt="blogimage" />
                 </div>
                 <div className="blog-content">
                   <h2>{blogPost.blogtitle}</h2>
