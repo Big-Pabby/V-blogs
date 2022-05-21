@@ -6,7 +6,6 @@ import Loader from '../../Components/Loading/Loading'
 import { useNavigate } from 'react-router-dom';
 import SuccessModal from '../../Components/ModalMessage/SuccessModal';
 import ErrorModal from '../../Components/ModalMessage/ErrorModal';
-import axios from 'axios';
 
 const CreateBlog = ({user}) => {
   const [errorMessage, setErrorMessage] = useState('');
@@ -36,33 +35,33 @@ const CreateBlog = ({user}) => {
   }
 
   const saveImage =  async (e) => {
-    // setBlogPost({...blogPost, blogImage: e.target.files[0].name, blogImageURL: URL.createObjectURL(e.target.files[0])})
+    setBlogPost({...blogPost, blogImage: e.target.files[0].name, blogImageURL: URL.createObjectURL(e.target.files[0])})
 
-    const formData = new FormData();
-    formData.append('file', e.target.files[0]);
+    // const formData = new FormData();
+    // formData.append('file', e.target.files[0]);
 
-    try {
-      setLoader(true)
-      const res = await axios.post('https://secure-taiga-11377.herokuapp.com/upload', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      });
+    // try {
+    //   setLoader(true)
+    //   const res = await axios.post('https://secure-taiga-11377.herokuapp.com/upload', formData, {
+    //     headers: {
+    //       'Content-Type': 'multipart/form-data'
+    //     }
+    //   });
 
-      const {fileName, filePath } = res.data;
+    //   const {fileName, filePath } = res.data;
 
-      // setUploadFile({fileName, filePath})
-      setTimeout(() => {
-        setLoader(false)
-        setBlogPost({...blogPost, blogImage: fileName, blogImageURL: filePath})
-      }, 3000)
-    } catch(err) {
-      if(err.response.status === 500) {
-        console.log('There was a problem with the server')
-      } else {
-        console.log(err.response.data.msg)
-      }
-    }
+    //   // setUploadFile({fileName, filePath})
+    //   setTimeout(() => {
+    //     setLoader(false)
+    //     setBlogPost({...blogPost, blogImage: fileName, blogImageURL: filePath})
+    //   }, 3000)
+    // } catch(err) {
+    //   if(err.response.status === 500) {
+    //     console.log('There was a problem with the server')
+    //   } else {
+    //     console.log(err.response.data.msg)
+    //   }
+    // }
   }
 
   const publishBlog = async () => {
@@ -70,7 +69,7 @@ const CreateBlog = ({user}) => {
       setLoader(true)
       try {
         setLoader(true)
-        const res = await fetch('http://localhost:5000/publishPost', {
+        const res = await fetch('https://secure-taiga-11377.herokuapp.com/publishPost', {
           method: 'post',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
@@ -138,7 +137,7 @@ const CreateBlog = ({user}) => {
         </div>
         { blogPost.blogImageURL ? (
           <div className="createblog-input-image">
-            <img src={require(`../../assets${blogPost.blogImageURL}`)} alt="" />
+            <img src={blogPost.blogImageURL} alt="" />
           </div>
         ) : null }
         <ReactQuill onChange={saveBlogContent} placeholder='Write your blog here...' modules={CreateBlog.modules} formats={CreateBlog.formats} />

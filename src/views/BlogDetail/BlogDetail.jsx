@@ -17,7 +17,7 @@ const BlogDetail = () => {
     <div className="blog-detail">
         <div className="container">
             <div className="blog-Image">
-            <img src={require(`../../assets${item.blogimageurl}`)} alt="blogimage" />
+            <img src={item.blogimageurl} alt="blogimage" />
             </div>
             <div className="content">
               <h2>{item.blogtitle}</h2>
