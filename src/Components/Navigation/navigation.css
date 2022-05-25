@@ -27,7 +27,7 @@ header {
 
 /* Media QUeries */
 @media (max-width: 960px) {
-    .nav-bar nav {
+    .nav-bar nav, .logout {
         display: none;
     }
 

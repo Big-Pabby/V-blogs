@@ -4,7 +4,7 @@ import {GrClose} from 'react-icons/gr'
 import { Link } from 'react-router-dom'
 import './hamburgerMenu.css'
 
-function HamburgerMenu() {
+function HamburgerMenu({logOut}) {
     const [sidebar, setSidebar] = useState(false)
 
     const showSidebar = () => setSidebar(!sidebar)
@@ -23,10 +23,12 @@ function HamburgerMenu() {
                         </Link>
                     </li>
                     <div className="nav-links">
-                    <Link to='/V-blogs' className='nav-text'><li >Home</li></Link>
+                        <Link to='/home' className='nav-text'><li >Home</li></Link>
                         <Link to='/create-blog' className='nav-text'><li>CreateBlog</li></Link>
-                       <Link to='/login' className='nav-text'><li>Login/Register</li></Link>
                         <Link to='/profile' className='nav-text'><li>Profile</li></Link>
+                    </div>
+                    <div className="menu-logout">
+                        <Link onClick={logOut} to='/V-blogs' className='btn'><li>Logout</li></Link>
                     </div>  
                 </ul>
             </div>

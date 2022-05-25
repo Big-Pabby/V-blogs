@@ -8,6 +8,7 @@ import {HiMail} from 'react-icons/hi';
 import Loading from '../../Components/Loading/Loading'
 import SuccessModal from '../../Components/ModalMessage/SuccessModal';
 import ErrorModal from '../../Components/ModalMessage/ErrorModal';
+import Logo from '../../Components/Logo/Logo';
 
 const Login = ({logUser}) => {
   const [loginDetails, setLoginDetails] = useState({
@@ -31,7 +32,7 @@ const Login = ({logUser}) => {
   const onLogin = async () => {
     if(loginDetails.email !== '' && loginDetails.password !== '') {
       setLoader(true)
-      const res = await fetch('https://secure-taiga-11377.herokuapp.com/login', {
+      const res = await fetch('http://localhost:5000/login', {
           method: 'post',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
@@ -46,30 +47,30 @@ const Login = ({logUser}) => {
         setTimeout(() => {
           setErrModal(false);
           setErrorMessage('')
-        }, 5000)
+        }, 3000)
       } else if (user === 'Invalid Password') {
         setErrModal(true);
         setErrorMessage('Invalid Password');
         setTimeout(() => {
           setErrModal(false);
           setErrorMessage('')
-        }, 5000)
+        }, 3000)
       } else if(user === 'unable to login'){
         setErrModal(true);
         setErrorMessage('Unable To Login');
         setTimeout(() => {
           setErrModal(false);
           setErrorMessage('')
-        }, 5000)
+        }, 3000)
       } else {
-        logUser(user);
         setModal(true);
         setSuccessMessage('Login Successful');
         setTimeout(() => {
           setModal(false);
           setSuccessMessage('')
-          history("/V-blogs")
-        }, 5000)
+          logUser(user);
+          history("/home")
+        }, 3000)
       }
 
       setLoader(false);
@@ -79,7 +80,7 @@ const Login = ({logUser}) => {
       setTimeout(() => {
         setErrModal(false);
         setErrorMessage('')
-      }, 5000)
+      }, 3000)
     }
   }
 
@@ -89,8 +90,11 @@ const Login = ({logUser}) => {
       <div className="login-image">
         <img src={LoginImage} alt="login svg" />
       </div>
-      <h2>Login to V-Blog</h2>
-      <hr />
+      <div className="login-heading">
+        <Logo />
+        <h2>Login</h2>
+        <p>Welcome back</p>
+      </div>
       <form className='login-form'>
         <div className='login-detail'>
           <label>
@@ -106,8 +110,8 @@ const Login = ({logUser}) => {
           </label>
           <input type="password" onChange={inputPassword} placeholder='Enter Your Password' />
         </div>
+        <button type='button' onClick={onLogin} className='btn'>Login</button>
         <p>Don't Have An Account? <Link to="/register">Register</Link></p>
-        <button type='button' onClick={onLogin} className='btn'>LOGIN</button>
       </form>
     </div>
     <Loading loader={loader} />

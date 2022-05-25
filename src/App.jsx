@@ -12,28 +12,45 @@ import BlogDetail from './views/BlogDetail/BlogDetail';
 
 function App() {
   const[user, setUser] = useState({});
+  const [logUser, setLogUser] = useState(false)
 
-  const logUser = (userData) => {
+  const userInfo = (userData) => {
     setUser(userData);
+    setLogUser(true)
   }
 
-  return (
-    <Router>
+  const logOut = () => {
+    setLogUser(false);
+    setUser({});
+  }
+
+  if(logUser === true) {
+    return (
+      <Router>
       <div className="App">
-        <Navigation className="Navigation"/>
+        <Navigation logOut={logOut} className="Navigation"/>
         <Routes>
-          <Route path='/V-blogs' exact element={<Home/>} />
+          <Route path='/home' exact element={<Home/>} />
           <Route path='/create-blog' element={<CreateBlog user={user} />} />
-          <Route path='/login' element={<Login logUser={logUser}/>} />
           <Route path='/profile' element={<Profile user={user} />} />
-          <Route path='/register' element={<Register />} />
           <Route path='/blog-detail/:id' exact element={<BlogDetail />} />
         </Routes>
         <Footer/>
       </div>
     </Router>
-
-  );
+    )
+  } else {
+    return (
+      <Router>
+      <div className="App">
+        <Routes>
+          <Route path='/V-blogs' exact element={<Login logUser={userInfo}/>} />
+          <Route path='/register' element={<Register />} />
+        </Routes>
+      </div>
+    </Router>
+    )
+  }
 }
 
 export default App;

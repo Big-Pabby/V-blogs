@@ -9,6 +9,7 @@ import {FaUserAlt} from 'react-icons/fa'
 import Loading from '../../Components/Loading/Loading'
 import SuccessModal from '../../Components/ModalMessage/SuccessModal';
 import ErrorModal from '../../Components/ModalMessage/ErrorModal';
+import Logo from '../../Components/Logo/Logo';
 
 const Register = () => {
   const [registerUser, setRegisterUser] = useState({
@@ -68,7 +69,7 @@ const Register = () => {
         setTimeout(() => {
           setModal(false);
           setSuccessMessage('')
-          history("/login")
+          history("/V-blogs")
         }, 5000)
       }
       setLoader(false)
@@ -88,7 +89,11 @@ const Register = () => {
           <div className="login-image">
             <img src={RegisterImage} alt="register svg" />
           </div>
-          <h2>Create Your V-Blog Account</h2>
+          <div className="login-heading">
+            <Logo />
+            <h2>Sign up</h2>
+            <p>Create a free account</p>
+          </div>
           <hr />
           <form className='login-form'>
             <div className='login-detail'>
@@ -119,8 +124,8 @@ const Register = () => {
               </label>
               <input type="password" onChange={registerPassword} placeholder='Enter Your Password' />
             </div>
-            <p>Already Have An Account? <Link to="/login">Login</Link></p>
             <button type='button' onClick={onRegister} className='btn'>Register</button>
+            <p>Already Have An Account? <Link to="/V-blogs">Login</Link></p>
           </form>
         </div>
         <Loading loader={Loader} />

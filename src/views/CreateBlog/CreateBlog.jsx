@@ -91,14 +91,14 @@ const CreateBlog = ({user}) => {
             setModal(false);
             setSuccessMessage('');
             history('/V-blogs');
-          }, 5000)
+          }, 3000)
         } else {
           setErrModal(true);
           setErrorMessage('Unable to publish blog');
           setTimeout(() => {
             setErrModal(false);
             setErrorMessage('')
-          }, 5000)
+          }, 3000)
         }
       } catch {
         setErrModal(true);
@@ -106,7 +106,7 @@ const CreateBlog = ({user}) => {
         setTimeout(() => {
           setErrModal(false);
           setErrorMessage('')
-        }, 5000)
+        }, 3000)
       }
     } else {
       setErrorMessage('Oops!!!, looks like there is an error. Make sure the blog content is greater than 300 words or the blog title is greater than 10 words or make sure you have uploaded an image. Then you are all set')
