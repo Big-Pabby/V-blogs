@@ -32,7 +32,7 @@ const Login = ({logUser}) => {
   const onLogin = async () => {
     if(loginDetails.email !== '' && loginDetails.password !== '') {
       setLoader(true)
-      const res = await fetch('http://localhost:5000/login', {
+      const res = await fetch('https://secure-taiga-11377.herokuapp.com/login', {
           method: 'post',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
