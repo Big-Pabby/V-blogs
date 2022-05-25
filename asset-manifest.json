@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/V-blogs/static/css/main.29fc0112.css",
-    "main.js": "/V-blogs/static/js/main.be18bb1d.js",
+    "main.css": "/V-blogs/static/css/main.196e70d1.css",
+    "main.js": "/V-blogs/static/js/main.2497b740.js",
     "static/media/content.jpg": "/V-blogs/static/media/content.6ccdb89b344ef66cc46c.jpg",
     "static/media/category.jpg": "/V-blogs/static/media/category.fae014b41ea3d1f127d0.jpg",
     "static/media/topic.jpeg": "/V-blogs/static/media/topic.19628d330bd32fc07f85.jpeg",
@@ -13,11 +13,11 @@
     "static/media/register.svg": "/V-blogs/static/media/register.000f67719c0a2cc14ab1f83bca36405e.svg",
     "static/media/login.svg": "/V-blogs/static/media/login.a915755c6fbf2581393492c844d6c004.svg",
     "index.html": "/V-blogs/index.html",
-    "main.29fc0112.css.map": "/V-blogs/static/css/main.29fc0112.css.map",
-    "main.be18bb1d.js.map": "/V-blogs/static/js/main.be18bb1d.js.map"
+    "main.196e70d1.css.map": "/V-blogs/static/css/main.196e70d1.css.map",
+    "main.2497b740.js.map": "/V-blogs/static/js/main.2497b740.js.map"
   },
   "entrypoints": [
-    "static/css/main.29fc0112.css",
-    "static/js/main.be18bb1d.js"
+    "static/css/main.196e70d1.css",
+    "static/js/main.2497b740.js"
   ]
 }
