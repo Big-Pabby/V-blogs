@@ -82,7 +82,7 @@ const CreateBlog = ({user}) => {
           })
         })
         console.log(res.json())
-        const response = res.json()
+        const response = await res.json()
         setLoader(false);
         if(response !== 'unable to publish post') {
           setSuccessMessage('Blog Published Sucessfully');
@@ -90,7 +90,7 @@ const CreateBlog = ({user}) => {
           setTimeout(() => {
             setModal(false);
             setSuccessMessage('');
-            history('/V-blogs');
+            history('/home');
           }, 3000)
         } else {
           setErrModal(true);
