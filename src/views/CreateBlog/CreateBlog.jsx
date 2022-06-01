@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './createBlog.css'
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css';
@@ -11,6 +11,8 @@ const CreateBlog = ({user}) => {
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [loader, setLoader] = useState(false);
+  const [file, setFile] = useState(null);
+  const [imageURL, setImageURL] = useState('');
   const [modal, setModal] = useState(false);
   const [errModal, setErrModal] = useState(false);
   const [blogPost, setBlogPost] = useState({
@@ -21,6 +23,18 @@ const CreateBlog = ({user}) => {
     blogImageURL: '',
     blogCategory: 'News',
   });
+
+  useEffect(() => {
+    if(file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImageURL(reader.result)
+      }
+      reader.readAsDataURL(file)
+    } else {
+      setImageURL('')
+    }
+  }, [file])
 
   const history = useNavigate();
 
@@ -34,8 +48,10 @@ const CreateBlog = ({user}) => {
     setBlogPost({...blogPost, blogCategory: e.target.value})
   }
 
-  const saveImage =  async (e) => {
-    setBlogPost({...blogPost, blogImage: e.target.files[0].name, blogImageURL: URL.createObjectURL(e.target.files[0])})
+  const saveImage =  (e) => {
+    // setBlogPost({...blogPost, blogImage: e.target.files[0].name, blogImageURL: URL.createObjectURL(e.target.files[0])})
+    setFile(e.target.files[0]);
+    setBlogPost({...blogPost, blogImage: e.target.files[0].name})
 
     // const formData = new FormData();
     // formData.append('file', e.target.files[0]);
@@ -67,7 +83,6 @@ const CreateBlog = ({user}) => {
   const publishBlog = async () => {
     if(blogPost.blogContent.length >= 300 && blogPost.blogTitle.length >= 10 && blogPost.blogImage !== null) {
       setLoader(true)
-      try {
         setLoader(true)
         const res = await fetch('https://secure-taiga-11377.herokuapp.com/publishPost', {
           method: 'post',
@@ -75,13 +90,12 @@ const CreateBlog = ({user}) => {
           body: JSON.stringify({
               blogTitle: blogPost.blogTitle,
               blogCategory: blogPost.blogCategory,
-              blogImageURL: blogPost.blogImageURL,
+              blogImageURL: imageURL,
               blogContent: blogPost.blogContent,
               blogImageName: blogPost.blogImage,
               blogBy: blogPost.blogBy
           })
         })
-        console.log(res.json())
         const response = await res.json()
         setLoader(false);
         if(response !== 'unable to publish post') {
@@ -100,14 +114,6 @@ const CreateBlog = ({user}) => {
             setErrorMessage('')
           }, 3000)
         }
-      } catch {
-        setErrModal(true);
-        setErrorMessage('No internet connection');
-        setTimeout(() => {
-          setErrModal(false);
-          setErrorMessage('')
-        }, 3000)
-      }
     } else {
       setErrorMessage('Oops!!!, looks like there is an error. Make sure the blog content is greater than 300 words or the blog title is greater than 10 words or make sure you have uploaded an image. Then you are all set')
     }
@@ -135,11 +141,10 @@ const CreateBlog = ({user}) => {
             <span>File Name:{blogPost.blogImage}</span>
           </div>
         </div>
-        { blogPost.blogImageURL ? (
+        
           <div className="createblog-input-image">
-            <img src={blogPost.blogImageURL} alt="" />
+            <img src={imageURL} alt="" />
           </div>
-        ) : null }
         <ReactQuill onChange={saveBlogContent} placeholder='Write your blog here...' modules={CreateBlog.modules} formats={CreateBlog.formats} />
         <p className='error-msg'>{errorMessage}</p>
         <div className="createblog-btn">
