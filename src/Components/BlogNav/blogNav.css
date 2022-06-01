@@ -9,7 +9,7 @@
     color: var(--color-secondary);
 }
 
-@media (max-width:500px) {
+@media (max-width: 760px) {
     .BlogNav {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;

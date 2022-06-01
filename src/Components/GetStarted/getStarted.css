@@ -41,7 +41,7 @@
     border-radius: 50%;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 760px) {
     .tip {
         flex-direction: column;
         text-align: center;
