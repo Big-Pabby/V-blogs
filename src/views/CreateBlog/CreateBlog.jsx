@@ -84,7 +84,7 @@ const CreateBlog = ({user}) => {
     if(blogPost.blogContent.length >= 300 && blogPost.blogTitle.length >= 10 && blogPost.blogImage !== null) {
       setLoader(true)
         setLoader(true)
-        const res = await fetch('https://secure-taiga-11377.herokuapp.com/publishPost', {
+        const res = await fetch('https://taste-element-api-1.onrender.com/publishPost', {
           method: 'post',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
