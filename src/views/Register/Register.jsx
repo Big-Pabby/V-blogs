@@ -45,7 +45,7 @@ const Register = () => {
   const onRegister = async () => {
     if(registerUser.firstName !== '' && registerUser.lastName !== '' && registerUser.email !== '' && registerUser.password !== '') {
       setLoader(true)
-      const res = await fetch('https://secure-taiga-11377.herokuapp.com/register', {
+      const res = await fetch('https://taste-element-api-1.onrender.com/register', {
           method: 'post',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
